@@ -19,13 +19,13 @@ import {
 console.disableYellowBox = true;
 
 import LoginScreen from './src/LoginScreen';
-import CalendarScreen from './src/CalendarScreen';
+import Navigator from './src/TabNavigator';
 
 import {createSwitchNavigator, createAppContainer} from 'react-navigation';
 
 const App = createSwitchNavigator({
   login: {screen: LoginScreen},
-  calendar: {screen: CalendarScreen},
+  navigator: {screen: Navigator},
 });
 
 const AppContainer = createAppContainer(App);

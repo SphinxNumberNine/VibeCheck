@@ -46,7 +46,7 @@ export default class LoginScreen extends Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('calendar')}>
+            onPress={() => this.props.navigation.navigate('navigator')}>
             <View style={styles.button}>
               <Text style={styles.buttonText}>SIGN IN</Text>
             </View>
