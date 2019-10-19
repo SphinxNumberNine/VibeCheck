@@ -24,7 +24,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+import LoginScreen from './src/LoginScreen';
+
+/* const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -70,6 +72,10 @@ const App: () => React$Node = () => {
       </SafeAreaView>
     </>
   );
+}; */
+
+const App = () => {
+  return <LoginScreen />;
 };
 
 const styles = StyleSheet.create({
