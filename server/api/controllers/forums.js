@@ -11,7 +11,7 @@ exports.getAll = function(req, res, next) {
             let forums = [];
             if (docs) {
                 for (let doc of docs) {
-                    forums.push(doc);
+                    forums.push(doc.subject);
                 }
             }
             res.status(200).json({
