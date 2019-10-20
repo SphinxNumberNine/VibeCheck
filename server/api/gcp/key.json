@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vibe-check-language-256505",
+  "private_key_id": "7cbc36c74b0d1c0c2fc85a21b8a62722539d6b04",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDzEIzjIN/Mex+Q\nfaTHvbUrmuesZWA1uJGxMrGiDygaN399C9z8h6EWv2ANwyZIqKyTNlCL213r/Drc\n5ZJ25W4vzSZzt+PQXdsIhpx57yVH5gtErIkwdiw1ir9a6g5FWip5doKT9A88lS/F\nCidzMjEHYh9WTkcP6w6+5UiTQRMVEhKNgfzY60paG331XQ7pWY1/ujiuVBDlcakE\n3m2TjqV75usoHUALvZizxgESoDvl5pV7qbmQpPy8P3uUcPLdq75nJhS+g+cSxjj7\nafjDmefG9JZDcrxWBM/S11b5rg1cknsVwUfni+iS5HsBABuHOotACXSWDBkNE6x3\nuzU9znWZAgMBAAECggEAANQVvNjx9lUVmZUaDI28mjhSEZP7YNd/FKDo+tXNI9C8\nXCFgGJLARW7zzXw0q1L62poY6m8eGfWvQC0+o23bAynyd3rBGabWPihSTHaYlI8H\nyw1A/vOqKSkOx6ksUQdyhV02avluG11hTy0+ju2U/fLTS0SjSJ47G8K1jX3vahcW\n2oJ9+lPTTR6jnUl2bis5uupbtInL3UPXOE4ghXHLDfqQfxtVX+3/2WQpHCtyijTJ\ns9RHzNgar/OHdR+bVS8YqgJGnOGLszy0RxB6OdLdkMUPqTJxHW1b532F6svL9AMf\nXKtkHSUvuBv7heDKeCjkd5eptme9RlmJImDtW4zBIQKBgQD7/6Fz687nmaOXCJ8W\n9f/uOZ2/7BhkDOr9rEPJJqEKJm1l7QQuttRK8H2GRUcqSA96LDUhglRVmdP0uEU9\nrzhZmT/uZN0mpY2m0zYnpLRL03YfpMOsj7eL60K6cjYmRRMajyy2gUJGsGOgTHWs\n/YlevuwkMOTM2+UABtHCLMyWoQKBgQD27Jp/GuReOwV1Q3equkxqQCLsV6XwreMW\nVcVjcrpSZBf9qCr++s3D7okWSXxbN8CTp7iizPTKBoX9lp4Try06kPDBLKFbrfB+\n8Hg/Xq9Mboy5p5daaxO51Z0Gvxfr5SCvaX7l4ST4gLbalBdtl3W4VyJohwRsUqKW\nMPLrkmIT+QKBgGgfVM+4BHLPmbeDOXDcTlZZeiPd4qocaFBOiGepzWqLPDKcP1kp\n9AfO3J7JK0F+Kt75Oy7QUhZYjCqWpQ16w9bJqo/PH02jpCblKIAy3shh5HHou20m\nqNloaNbu8A7aBa24sOnr+L2Kjm+iiBDlZYg/bQT7Kt62kSV0q+EGb7ZhAoGBAPVC\nR6auSFyMVTyHOepbRyFV+Ro1aL5piSCbKwc/YnAJuYaarbI73Xuah5Gahil4dBB1\nTEBwQUgVOKuMGhFFMzBz3J6TPOZ6G2GKanXPD2FkgOS64OvPZXV1BpY34oPNPyzc\nJU4h1f36oyTyaV7STPw/mA6o5SzO221Ay1hPOpnJAoGAVMdWi94VstQn3kIQ14rd\nPiRFVAAAXhDKXYl2Au7BVIdBDYcJ9GuL0GSbLrieyRMerjcn7967yVOjaYTXrkoP\nbz7VsMdynEzb7bv9PSxi9+KtdpbjfPqe+RSWTbtGCThb8HSFeKfbomPcgCL2PEI5\npZZ39YVXZWa3CeJoioBaeFk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "vibe-check@vibe-check-language-256505.iam.gserviceaccount.com",
+  "client_id": "110059618926966556992",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vibe-check%40vibe-check-language-256505.iam.gserviceaccount.com"
+}
