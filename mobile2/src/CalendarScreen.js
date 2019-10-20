@@ -13,6 +13,8 @@ import ColorPalette from 'react-native-color-palette';
 
 var calendarInput = {};
 
+var serverEntries;
+
 export default class CalendarScreen extends Component {
   constructor(props) {
     super(props);
@@ -25,6 +27,7 @@ export default class CalendarScreen extends Component {
 
     this.props.navigation.addListener('willFocus', async result => {
       var entriesResp = await global.APIClient.getEntries();
+      serverEntries = entriesResp.body.entries;
       console.log('ENTRIES RESP ' + JSON.stringify(entriesResp, null, 4));
       calendarInput = {};
       try {
@@ -78,7 +81,23 @@ export default class CalendarScreen extends Component {
           markingType={'period'}
           pastScrollRange={24}
           futureScrollRange={0}
-          onDayPress={day => this.setState({modalVisible: true, day})}
+          onDayPress={day => {
+            let foundDate = null;
+            let dateFound = false;
+            for (entry of serverEntries) {
+              if (entry.date == day.month + '/' + day.day + '/' + day.year) {
+                dateFound = true;
+                foundDate = entry;
+                break;
+              }
+            }
+
+            if (!dateFound) {
+              this.setState({modalVisible: true, day});
+            } else {
+              this.props.navigation.navigate('viewPrivateEntry', { foundDate });
+            }
+          }}
         />
         <Modal
           visible={this.state.modalVisible}

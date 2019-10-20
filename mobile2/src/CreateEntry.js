@@ -49,11 +49,11 @@ export default class CreateEntry extends Component {
         photo = photos['lightblue' + randomNum];
         colorString = 'lightblue' + randomNum;
         break;
-      case '#cc99ff':
+      case '#000066':
         photo = photos['darkblue' + randomNum];
         colorString = 'darkblue' + randomNum;
         break;
-      case '#000066':
+      case '#cc99ff':
         photo = photos['pink' + randomNum];
         colorString = 'pink' + randomNum;
         break;
