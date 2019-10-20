@@ -5,15 +5,63 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import {CalendarList} from 'react-native-calendars';
 import Modal, {ModalContent} from 'react-native-modals';
 import ColorPalette from 'react-native-color-palette';
+
+var calendarInput = {};
+
 export default class CalendarScreen extends Component {
   constructor(props) {
     super(props);
 
+    let currentComponent = this;
+
+    setInterval(() => {
+      currentComponent.setState({testing: 'yuh'});
+    }, 500);
+
+    this.props.navigation.addListener('willFocus', async result => {
+      var entriesResp = await global.APIClient.getEntries();
+      console.log('ENTRIES RESP ' + JSON.stringify(entriesResp, null, 4));
+      calendarInput = {};
+      try {
+        for (let entry of entriesResp.body.entries) {
+          let date = entry.date.split('/');
+          let calendarDate = [
+            date[2],
+            date[0].length == 1 ? '0' + date[0] : date[0],
+            date[1].length == 1 ? '0' + date[1] : date[1],
+          ].join('-');
+          calendarInput[calendarDate] = {
+            color: entry.color,
+            startingDay: true,
+            endingDay: true,
+            disabled: true,
+            disableTouchEvent: true,
+          };
+        }
+
+        let tipData = currentComponent.props.navigation.state.params.tipData;
+
+        console.log('UHHHH: ' + JSON.stringify(tipData));
+
+        if (tipData) {
+          Alert.alert(tipData.title, tipData.tip);
+        }
+      } catch (err) {}
+
+      currentComponent.setState({finishedCalendar: true}, () => {
+        console.log('state change');
+      });
+    });
+
     // get days with entry
+    global.APIClient.getEntries().then(entriesResp => {
+      console.log('ENTRIES ' + JSON.stringify(entriesResp, null, 4));
+    });
 
     this.state = {
       modalVisible: false,
@@ -25,32 +73,12 @@ export default class CalendarScreen extends Component {
     return (
       <SafeAreaView>
         <CalendarList
+          markedDates={calendarInput}
           maxDate={Date()}
-          markedDates={{
-            '2019-05-20': {
-              textColor: 'green',
-              startingDay: true,
-              endingDay: true,
-            },
-            '2019-05-22': {color: 'green', startingDay: true, endingDay: true},
-            '2019-05-23': {
-              selected: true,
-              color: '#108752',
-              textColor: 'white',
-              startingDay: true,
-              endingDay: true,
-            },
-            '2019-05-04': {
-              disabled: true,
-              startingDay: true,
-              color: 'green',
-              endingDay: true,
-            },
-          }}
           markingType={'period'}
           pastScrollRange={24}
           futureScrollRange={0}
-          onDayPress={day => this.setState({modalVisible: true})}
+          onDayPress={day => this.setState({modalVisible: true, day})}
         />
         <Modal
           visible={this.state.modalVisible}
@@ -78,7 +106,10 @@ export default class CalendarScreen extends Component {
                 disabled={!this.state.color}
                 onPress={() => {
                   this.setState({modalVisible: false}, () =>
-                    this.props.navigation.navigate('createEntry'),
+                    this.props.navigation.navigate('createEntry', {
+                      day: this.state.day,
+                      color: this.state.color,
+                    }),
                   );
                 }}>
                 <View
@@ -87,7 +118,7 @@ export default class CalendarScreen extends Component {
                       ? styles.enabledButton
                       : styles.disabledButton
                   }>
-                  <Text>Submit</Text>
+                  <Text>Create Diary Entry</Text>
                 </View>
               </TouchableOpacity>
             </View>

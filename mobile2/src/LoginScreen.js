@@ -6,11 +6,17 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 
 export default class LoginScreen extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      username: '',
+      password: '',
+    };
   }
   render() {
     return (
@@ -18,7 +24,7 @@ export default class LoginScreen extends Component {
         <View style={styles.logoContiner}>
           <Image
             style={styles.logo}
-            source={require('../assets/images/icologo.png')}
+            source={require('../assets/images/logo.png')}
           />
         </View>
         <View style={styles.container1}>
@@ -30,6 +36,8 @@ export default class LoginScreen extends Component {
               style={styles.textInput}
               placeholder="Email"
               keyboardType="email-address"
+              autoCapitalize="none"
+              onChangeText={e => this.setState({username: e.toLowerCase()})}
             />
           </View>
           <View style={styles.passwordContainer}>
@@ -37,6 +45,8 @@ export default class LoginScreen extends Component {
               style={styles.textInput}
               placeholder="Password"
               secureTextEntry={true}
+              autoCapitalize="none"
+              onChangeText={password => this.setState({password})}
             />
           </View>
 
@@ -45,8 +55,7 @@ export default class LoginScreen extends Component {
               <Text style={styles.forgotText}>Forgot password?</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('navigator')}>
+          <TouchableOpacity onPress={() => this.logIn()}>
             <View style={styles.button}>
               <Text style={styles.buttonText}>SIGN IN</Text>
             </View>
@@ -62,6 +71,24 @@ export default class LoginScreen extends Component {
         </TouchableOpacity>
       </View>
     );
+  }
+
+  async logIn() {
+    console.log('LOG IN CALLED');
+    console.log('username: ' + this.state.username);
+    console.log('password: ' + this.state.password);
+    var APIClient = global.APIClient;
+    let loginResp = await APIClient.login(
+      this.state.username,
+      this.state.password,
+    );
+    if (loginResp.success) {
+      console.log('LOG IN SUCCESS');
+      this.props.navigation.navigate('navigator');
+    } else {
+      console.log('LOG IN FAILED');
+      Alert.alert('Error', 'Could not login');
+    }
   }
 }
 
@@ -81,7 +108,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 300,
-    height: 60,
+    height: 200,
     resizeMode: 'contain',
   },
   forgotPassword: {
@@ -118,6 +145,7 @@ const styles = StyleSheet.create({
     width: 330,
   },
   logoContiner: {
+    marginTop: 100,
     height: 170,
     flexDirection: 'column',
     justifyContent: 'flex-end',
