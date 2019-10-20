@@ -1,8 +1,0 @@
-{
-    "env": {
-        "MONGO_DB_USER": "vibecheckapi",
-        "MONGO_DB_PASS": "JQ788PF1ADH8NRC",
-        "JWT_SECRET": "LLNF9OKUG9W8IP6YXJTBQR8QP89YM042CQBEITS3",
-        "FORUM_CREATION_SECRET": "mI113+I%BwP$)i8Yu?3u"
-    }
-}
