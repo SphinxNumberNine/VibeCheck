@@ -14,14 +14,14 @@ export default class LoginScreen extends Component {
   }
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <View style={styles.logoContiner}>
           <Image
             style={styles.logo}
             source={require('../assets/images/icologo.png')}
           />
         </View>
-        <View style={styles.container}>
+        <View style={styles.container1}>
           <Text style={styles.welcome}>WELCOME</Text>
           <View style={{height: 30}} />
 
@@ -67,6 +67,12 @@ export default class LoginScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    backgroundColor: '#F5F6F7',
+  },
+  container1: {
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
