@@ -34,7 +34,7 @@ function Comment({user, content, date}) {
           color: '#000000',
           fontWeight: 'bold',
         }}>
-        {user + ' commented on ' + date}
+        {user + ' commented'}
       </Text>
       <Text
         style={{

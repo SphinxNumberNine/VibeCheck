@@ -76,6 +76,9 @@ class APIClient {
   }
 
   getForumEntries(forum) {
+    if (forum === 'misc') {
+      forum = 'miscellaneous';
+    }
     return this.sendRequest(
       '/forums/getEntries',
       'POST',
@@ -87,6 +90,9 @@ class APIClient {
   }
 
   addComment(forum, entryId, content) {
+    if (forum === 'misc') {
+      forum = 'miscellaneous';
+    }
     return this.sendRequest(
       '/forums/addComment',
       'POST',
@@ -119,6 +125,9 @@ class APIClient {
   }
 
   addEntryToForum(forum, entryId) {
+    if (forum === 'misc') {
+      forum = 'miscellaneous';
+    }
     return this.sendRequest(
       '/profile/addToForum',
       'POST',

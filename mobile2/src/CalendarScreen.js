@@ -53,6 +53,7 @@ export default class CalendarScreen extends Component {
 
         if (tipData) {
           Alert.alert(tipData.title, tipData.tip);
+          currentComponent.props.navigation.state.params.tipData = null;
         }
       } catch (err) {}
 
@@ -95,7 +96,7 @@ export default class CalendarScreen extends Component {
             if (!dateFound) {
               this.setState({modalVisible: true, day});
             } else {
-              this.props.navigation.navigate('viewPrivateEntry', { foundDate });
+              this.props.navigation.navigate('viewPrivateEntry', {foundDate});
             }
           }}
         />
